@@ -1,0 +1,105 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Cyber Font';
+    src: url(SpaceArmor-vmlv4.otf) format('truetype');
+}
+
+.cyber-button {
+    font-family: Cyber Font;
+    background-color: black;
+    color: white;
+    border: 2px solid rgb(80, 0, 146);
+    padding: 14px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+    transition: color 0.5s;
+    outline: none;
+}
+
+.cyber-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgb(80, 0, 146), transparent);
+    transform: skewX(-20deg);
+    transition: 0.8s;
+    z-index: -1;
+}
+
+.cyber-button:hover:before {
+    left: 100%;
+}
+
+.cyber-button:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    color: rgb(80, 0, 146);
+}
+
+.cyber-button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.wrapper.hovered::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./Images/cat.png');
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    opacity: 0.9;
+    filter: brightness(20%) contrast(100%) hue-rotate(210deg);
+}
+
+.wrapper::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./Images/cat.png');
+    filter: brightness(20%) contrast(100%) hue-rotate(210deg);
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
